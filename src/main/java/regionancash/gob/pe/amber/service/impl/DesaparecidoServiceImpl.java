@@ -9,6 +9,9 @@ import regionancash.gob.pe.amber.repository.IDesaparecidoRepository;
 import regionancash.gob.pe.amber.repository.IGenericRepo;
 import regionancash.gob.pe.amber.service.IDesaparecidoService;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class DesaparecidoServiceImpl extends CRUDImpl<Desaparecido, Integer> implements IDesaparecidoService {
     @Autowired
@@ -22,5 +25,9 @@ public class DesaparecidoServiceImpl extends CRUDImpl<Desaparecido, Integer> imp
     @Override
     public Page<Desaparecido> findAllByEstado(Pageable page, String estado) {
         return repo.findAllByEstado(page, estado);
+    }
+
+    public int changeEstado(Integer id, String estado) {
+        return repo.changeEstadoOne(id, estado);
     }
 }

@@ -11,6 +11,7 @@ import regionancash.gob.pe.amber.model.Desaparecido;
 import regionancash.gob.pe.amber.service.IDesaparecidoService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/desaparecido")
@@ -42,6 +43,11 @@ public class DesaparecidoController {
     @PostMapping
     public Desaparecido create(@RequestBody Desaparecido desaparecido) throws Exception {
         return service.create(desaparecido);
+    }
+
+    @GetMapping("/change/{id}")
+    public int changeEstado(@PathVariable("id") Integer id, @RequestParam(name = "estado") String estado) throws Exception {
+        return service.changeEstado(id, estado);
     }
 
     @PutMapping

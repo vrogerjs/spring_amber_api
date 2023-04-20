@@ -74,6 +74,12 @@ public class Desaparecido {
     @Column(length =512, nullable = false)
     private String estado;
 
+    @Column(length =512, nullable = false)
+    private String latitud;
+
+    @Column(length =512, nullable = false)
+    private String longitud;
+
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at")
